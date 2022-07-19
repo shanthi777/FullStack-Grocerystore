@@ -1,0 +1,24 @@
+package com.shanthi.onlinegrocerystore;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public class Test {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		try {
+			Path filePath = Paths.get("D:\\Demo\\grocerserycommodites\\rice.jpg");
+			// get byte array with file contents
+			byte[] fileContent = Files.readAllBytes(filePath);
+			 System.out.println(fileContent.toString());
+		}catch (Exception e) {
+System.out.println(e.toString());		}
+		
+
+	}
+
+}

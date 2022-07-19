@@ -1,0 +1,60 @@
+package com.shanthi.onlinegrocerystore.controller;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shanthi.onlinegrocerystore.model.Product;
+import com.shanthi.onlinegrocerystore.service.ProductService;
+@RestController
+@CrossOrigin
+@RequestMapping("/api")
+public class UploadController {
+
+	  private final ProductService productService;
+
+	public UploadController(ProductService productService) {
+		this.productService = productService;
+	}
+	
+	@PostMapping("/products")
+    public ResponseEntity<?> createProducts () {
+		try {
+			final File folder = new File("/onlinegrocerystore/src/main/resources/products");
+
+			if (folder.isDirectory()) {
+				
+				for (final File fileEntry : folder.listFiles()) {
+					 BufferedImage bImage = ImageIO.read(fileEntry);
+				      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+				      ImageIO.write(bImage, "jpg", bos );
+				      byte [] data = bos.toByteArray();
+				      if(data!=null) {
+				    	  Product product= new Product();
+				    	  product.setId(id);
+				    	  product.setName(name);
+				    	  product.setImage(image);
+				    	  product.setDescription(description);
+				    	  product.setAddedOn(addedOn);
+				    	  product.setPrice(price);
+				    	  
+				      }
+				}
+				
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;	
+		
+    }
+}

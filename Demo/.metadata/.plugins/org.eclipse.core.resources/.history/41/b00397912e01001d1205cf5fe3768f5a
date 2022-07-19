@@ -1,0 +1,20 @@
+package com.shanthi.onlinegrocerystore;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 BufferedImage bImage = ImageIO.read(new File("sample.jpg"));
+	      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	      ImageIO.write(bImage, "jpg", bos );
+	      byte [] data = bos.toByteArray();
+
+	}
+
+}

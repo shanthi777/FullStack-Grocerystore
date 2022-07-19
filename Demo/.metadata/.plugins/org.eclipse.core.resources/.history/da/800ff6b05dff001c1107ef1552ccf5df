@@ -1,0 +1,9 @@
+package com.shanthi.onlinegrocerystore.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class GroceryController {
+
+	
+}
